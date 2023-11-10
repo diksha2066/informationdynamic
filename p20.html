@@ -1,0 +1,67 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+     //ENTER A MATRIX OF 4 ROWS AND 2 COLUMNS FROM THE USER DISPLAY IT IN MATRIX FORM.
+#include&ltstdio.h>
+int main()
+{
+	int a[4][2],i,j;
+	printf("enter the elements of matrix");
+	for(i=0;i&lt4;i++)
+	{
+		for(j=0;j&lt2;j++)
+		{
+			scanf("%d",&a[i][j]);
+		}
+	}
+	printf("MATRIX \n\t\n");
+		for(i=0;i&lt4;i++)
+	{
+		for(j=0;j&lt2;j++)
+		{
+			printf("\t%d",a[i][j]);
+		}
+		printf("\t\n\t\n");
+	}
+	getch();
+}
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        enter the elements of matrix5
+        1
+        2
+        4
+        5
+        7
+        8
+        4
+        MATRIX
+        
+                5       1
+        
+                2       4
+        
+                5       7
+        
+                8       4
+        
+    </code>
+    </pre>
+</body>
+</html>

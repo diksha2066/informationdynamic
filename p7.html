@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //ENTER AN ARRAY FROM USER AND SQUARE ALL THE VALUES FROM ARRAY
+            #include&ltstdio.h&gt
+            int main(){
+                int size;
+                printf("enter the size of your array");
+                scanf("%d",&size);
+                int arr[size],i;
+                for( i=0; i&ltsize; i++){
+                    printf("enter value for %d element \n",i+1);
+                    scanf("%d",&arr[i]);
+                }
+                for( i=0; i&ltsize; i++){
+                    arr[i] = arr[i] * arr[i];
+                }
+                for( i=0; i&ltsize; i++){
+                    printf("square value at index %d is %d \n",i,arr[i]);
+                }
+                return 0;
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        enter the size of your array5
+        enter value for 1 element
+        1
+        enter value for 2 element
+        4
+        enter value for 3 element
+        8
+        enter value for 4 element
+        7
+        enter value for 5 element
+        5
+        square value at index 0 is 1
+        square value at index 1 is 16
+        square value at index 2 is 64
+        square value at index 3 is 49
+        square value at index 4 is 25
+    </code>
+    </pre>
+</body>
+</html>

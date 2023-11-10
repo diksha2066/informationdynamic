@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //ENTER AN ARRAY FROM USER AND COPY THE ARRAY INTO SECOND ARRAY
+            #include&ltstdio.h&gt
+            int main(){
+                int size,i;
+                printf("enter the size of your array");
+                scanf("%d",&size);
+                int arr[size];
+                for( i=0; i&ltsize; i++){
+                    printf("enter value for %d element \n",i+1);
+                    scanf("%d",&arr[i]);
+                }
+                int arr2[size];
+                for( i=0; i&ltsize; i++){
+                    arr2[i] = arr[i];
+                }
+                printf("ARRAY IS COPIED \n");
+                for( i=0; i&ltsize; i++){
+                    printf("value at %d index of array2 is %d \n",i,arr2[i]);
+                }
+            
+                return 0;
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        enter the size of your array5
+        enter value for 1 element
+        12
+        enter value for 2 element
+        4
+        enter value for 3 element
+        7
+        enter value for 4 element
+        5
+        enter value for 5 element
+        4
+        ARRAY IS COPIED
+        value at 0 index of array2 is 12
+        value at 1 index of array2 is 4
+        value at 2 index of array2 is 7
+        value at 3 index of array2 is 5
+        value at 4 index of array2 is 4
+    </code>
+    </pre>
+</body>
+</html>

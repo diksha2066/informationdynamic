@@ -1,0 +1,99 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //ENTER TWO ARRAYS FROM THE USER AND CHECK THEY ARE SAME OR NOT
+            #include&ltstdio.h&gt
+            
+            int main(){
+                int size1,i,j;
+                printf("enter the size of your 1st array");
+                scanf("%d",&size1);
+                int array1[size1];
+                for( i=0; i&ltsize1; i++){
+                    printf("enter value of 1st array for %d element \n",i+1);
+                    scanf("%d",&array1[i]);
+                }
+                int size2;
+                printf("enter the size of your 2nd array");
+                scanf("%d",&size2);
+                int array2[size2];
+                for( i=0; i&ltsize2; i++){
+                    printf("enter value of 2nd array for %d element \n",i+1);
+                    scanf("%d",&array2[i]);
+                }
+                for( i=0; i&ltsize1; i++){
+                    for( j=i+1; j&ltsize1; j++){
+                        if(array1[i] > array1[j]){
+                            int temp = array1[i];
+                            array1[i] = array1[j];
+                            array1[j] = temp;
+                        }
+                    }
+                }
+                for(i=0; i&ltsize2; i++){
+                    for( j=i+1; j<&ltize2; j++){
+                        if(array2[i] > array2[j]){
+                            int temp = array2[i];
+                            array2[i] = array2[j];
+                            array2[j] = temp;
+                        }
+                    }
+                }
+                i=0;
+                if(size1 == size2){
+                    while(i < size1){
+                        if(array1[i] == array2[i]){
+                            i++;
+                        }
+                        else{
+                            printf("not same");
+                            break;
+                        }
+                    }
+                }
+                if( i == size1){
+                    printf("same");
+                }
+                return 0;
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+       enter the size of your 1st array4
+enter value of 1st array for 1 element
+1
+enter value of 1st array for 2 element
+2
+enter value of 1st array for 3 element
+4
+enter value of 1st array for 4 element
+5
+enter the size of your 2nd array4
+enter value of 2nd array for 1 element
+1
+enter value of 2nd array for 2 element
+2
+enter value of 2nd array for 3 element
+4
+enter value of 2nd array for 4 element
+5
+same
+    </code>
+    </pre>
+</body>
+</html>

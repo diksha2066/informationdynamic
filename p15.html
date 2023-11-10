@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //ENTER AN ARRAY FROM USER AND PRINT ALL THE PALINDROME NUMBERS
+            #include&ltstdio.h&gt
+            int main(){
+                int size,i;
+                printf("enter the size of your array");
+                scanf("%d",&size);
+                int arr[size];
+                for( i=0; i&ltsize; i++){
+                    printf("enter value for %d element \n",i+1);
+                    scanf("%d",&arr[i]);
+                }
+                for( i=0; i&ltsize; i++){
+                    int bo = arr[i];
+                    int rn = 0;
+                    while(arr[i] != 0){
+                        int ld = arr[i] % 10;
+                        rn = rn * 10 + ld;
+                        arr[i] = arr[i] / 10;
+                    }
+                    if(rn == bo){
+                        printf("%d is pallindrome /n ",rn);
+                    }
+                }
+                return 0;
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        enter the size of your array4
+        enter value for 1 element
+        1
+        enter value for 2 element
+        5
+        enter value for 3 element
+        7
+        enter value for 4 element
+        8
+        1 is pallindrome
+         5 is pallindrome
+         7 is pallindrome
+         8 is pallindrome
+    </code>
+    </pre>
+</body>
+</html>
