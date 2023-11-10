@@ -1,0 +1,87 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt; 
+            #include &lt;stdlib.h&gt; 
+            struct Node {
+                int data;
+                struct Node* left;
+                struct Node* right;
+            };
+            struct Node* createnewNode(int data) {
+                struct Node* node = (struct Node*)malloc(sizeof(struct Node));
+                node->data = data;
+                node->left = node->right = NULL;
+                return node;
+            }
+            
+            int main() {
+                int data;
+                struct Node* root = NULL;
+                struct Node* newNode = NULL;
+                struct Node* currentNode = NULL;
+                printf("Enter the root node value: ");
+                scanf("%d", &data);
+                root = createnewNode(data);
+                currentNode = root;
+                int choice;
+                do {
+                    printf("Add a child to the current node (1: left, 2: right, 0: no child): ");
+                    scanf("%d", &choice);
+            
+                    if (choice == 0) {
+                        if (currentNode != root) {
+                            currentNode = root;
+                        } else {
+                            printf("Tree construction completed.\n");
+                            break;
+                        }
+                    } else if (choice == 1 || choice == 2) {
+                        printf("Enter the child node value: ");
+                        scanf("%d", &data);
+                        newNode = createnewNode(data);
+            
+                        if (choice == 1) {
+                            currentNode->left = newNode;
+                        } else if (choice == 2) {
+                            currentNode->right = newNode;
+                        }
+                        currentNode = newNode;
+                    } else {
+                        printf("Invalid choice, please enter 1, 2, or 0.\n");
+                    }
+                } while (1);
+            
+                return 0;
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+       Enter the root node value: 4
+Add a child to the current node (1: left, 2: right, 0: no child): 1
+Enter the child node value: 22
+Add a child to the current node (1: left, 2: right, 0: no child): 2
+Enter the child node value: 34
+Add a child to the current node (1: left, 2: right, 0: no child): 0
+Add a child to the current node (1: left, 2: right, 0: no child): 0
+Tree construction completed.
+
+    </code>
+    </pre>
+</body>
+</html>

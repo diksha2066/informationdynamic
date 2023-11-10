@@ -1,0 +1,94 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt; 
+            #include &lt;string.h&gt; 
+            void swap(char str[][10], int a, int b) {
+                char temp[10];
+                strcpy(temp, str[a]);
+                strcpy(str[a], str[b]);
+                strcpy(str[b], temp);
+            }
+            
+            int partition(char str[][10], int low, int high) {
+                char pivot[10];
+                int left,right;
+                strcpy(pivot, str[low]);
+                left = low + 1;
+                right = high;
+            
+                while (1) {
+                    while (left <= right && strcmp(str[left], pivot) <= 0)
+                        left++;
+            
+                    while (right >= left && strcmp(str[right], pivot) >= 0)
+                        right--;
+            
+                    if (right < left)
+                        break;
+            
+                    swap(str, left, right);
+                }
+            
+                swap(str, low, right);
+                return right;
+            }
+            
+            void quicksort(char str[][10], int low, int high) {
+                if (low < high) {
+                    int pivot = partition(str, low, high);
+                    quicksort(str, low, pivot - 1);
+                    quicksort(str, pivot + 1, high);
+                }
+            }
+            
+            int main() {
+                int i;
+                char str[5][10];
+                printf("Enter the strings\n");
+                for (i = 0; i < 5; i++) {
+                    printf("Enter the string at location %d: ", i + 1);
+                    scanf("%s", str[i]);
+                }
+            
+                quicksort(str, 0, 4);
+            
+                printf("Sorted strings are:\n");
+                for (i = 0; i < 5; i++) {
+                    printf("%s\n", str[i]);
+            }
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+       Enter the strings
+Enter the string at location 1: ww
+Enter the string at location 2: cc
+Enter the string at location 3: gg
+Enter the string at location 4: aa
+Enter the string at location 5: dd
+Sorted strings are:
+aa
+cc
+dd
+gg
+ww
+    </code>
+    </pre>
+</body>
+</html>
