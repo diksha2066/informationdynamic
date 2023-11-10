@@ -1,0 +1,50 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //Enter the string from the user,also enter a character and print the index of the character if it id exist in the string else print -1.
+            #include&ltstdio.h>
+            void main(){
+            char str[30],search;
+            int i;
+            printf("Enter a string: ");
+            gets(str);
+            printf("Enter a character to search: ");
+            scanf("%c",&search);
+            for(i=0;str[i]!='\0';i++){
+            if(str[i]==search){
+            printf("Value found on index %d!",i);
+            break;
+            }
+            }
+            if(str[i]=='\0'){
+            printf("%d",-1);
+            }
+            getch();
+            
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        Enter a string: happy
+        Enter a character to search: y
+        Value found on index 4!
+        
+    </code>
+    </pre>
+</body>
+</html>

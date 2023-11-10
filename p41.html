@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //ENTER TWO STRINGS FROM USER AND CONCATENATE THOSE STRINGS IN ANOTHER STRING AND DISPLAY THE ANSWER.
+            #include&ltstdio.h>
+            #include&ltstring.h>
+            #define size 10
+            void concat(char str1[], char str2[], char str3[]){
+                int j=0, i=0;
+                while(str1[i]!='\0'){
+                    str3[j]=str1[i];
+                    j++;
+                    i++;
+                }
+                i=0;
+                while(str2[i]!='\0'){
+                    str3[j]=str2[i];
+                    i++;
+                    j++;
+                }
+                str3[j]='\0';
+            }
+            int main(){
+                char str1[size], str2[size], str3[size+size];
+                printf("Enter input in string 1: ");
+                fgets(str1, size, stdin);
+                printf("Enter input in string 2: ");  
+                fgets(str2, size, stdin);
+                str1[strcspn(str1, "\n")] = '\0';
+                str2[strcspn(str2, "\n")] = '\0';
+                concat(str1, str2, str3);
+                puts(str3);  
+                return 0;
+            }
+            
+            
+            
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        Enter input in string 1: happy
+        Enter input in string 2: beautiful
+        happybeautiful
+    </code>
+    </pre>
+</body>
+</html>

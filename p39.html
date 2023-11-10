@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //ENTER THE STRING FROM USER AND DISPLAY LENGTH OF THE STRING
+            #include&ltstdio.h>
+            int total_length(char str[]){
+                int count = 0;
+                int i;
+                for( i=0; str[i] != '\0'; i++){
+                    count++;
+                }
+                return count++;
+            }
+            
+            int main(){
+                char str[100];
+                printf("enter string!");
+                scanf("%[^\n]",&str);
+                printf("your entered string is %s \n",str);
+                printf(" length of string %d",total_length(str));
+                return 0;
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        enter string!happy
+        your entered string is happy
+         length of string 5
+    </code>
+    </pre>
+</body>
+</html>

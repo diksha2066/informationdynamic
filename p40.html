@@ -1,0 +1,79 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //ENTER TWO STRINGS FROM USER AND COMPARE THOSE STRINGS THAT THEY ARE EQUAL OR NOT.
+#include&ltstdio.h>
+#define size 10
+int comp(char[], char[]);
+int length(char[]);
+
+int main(){
+    int result;
+    char str1[size], str2[size];
+    printf("Enter input in string 1: ");
+    fgets(str1, size, stdin);
+    str1[strcspn(str1, "\n")] = '\0';
+    printf("Enter input in string 2: ");  
+    fgets(str2, size, stdin);  
+    str1[strcspn(str2, "\n")] = '\0';
+    if(length(str1)==length(str2)){
+        result=comp(str1, str2);
+        if(result == 0){
+            printf("Strings are not equal! ");
+            }
+        else{
+            printf("Strings are equal! ");
+            }
+    }
+    else{
+        printf("String is not equal in size! ");
+    }
+    return 0;
+}
+
+int length(char str[]){
+    int i=0;
+    while(str[i]!='\0'){
+        i++;
+    }
+    return i;
+}
+
+int comp(char str1[], char str2[]){
+    int i=0;
+    while(str1[i]!='\0' && str2[i]!='\0'){
+        if(str1[i]==str2[i]){
+            i++;
+        }
+        else{
+            return 0;
+        }
+    }
+    return 1;
+}
+
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        Enter input in string 1: happy
+        Enter input in string 2: beautiful
+        String is not equal in size!
+    </code>
+    </pre>
+</body>
+</html>

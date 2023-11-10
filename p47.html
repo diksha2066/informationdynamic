@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //Enter the string from the user and print the difference of ASCII value of each character?
+            #include&ltstdio.h>
+            void main(){
+            char str[30];
+            int i,diff;
+            printf("Enter a string: ");
+            gets(str);
+            for(i=0;str[i]!='\0';i++){
+            if(str[i]!='\n'){
+            diff=str[i+1]-str[i];
+            printf("%c-%c=%d\n",str[i],str[i+1],diff);
+            }
+            }
+            getch();
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        Enter a string: happy
+        h-a=-7
+        a-p=15
+        p-p=0
+        p-y=9
+        y- =-121
+    </code>
+    </pre>
+</body>
+</html>

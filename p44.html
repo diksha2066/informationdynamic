@@ -1,0 +1,55 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //Enter the string from the user and check its palindrome or not?
+            #include&ltstdio.h>
+            #include&ltconio.h>
+            void main(){
+            char st1[30];
+            int i,size=0,result;
+            printf("Enter a string: ");
+            gets(st1);
+            while(st1[size]!='\0'){
+            size++;
+            }
+            for(i=0;i&ltsize;i++){
+            if(st1[i]!=st1[size-i-1]){
+            result=0;
+            break;
+            }
+            else{
+            result=1;
+            }
+            }
+            if(result==1){
+            printf("It is palindrome!");
+            }
+            else{
+            printf("its not a palindrome!");
+            }
+            getch();
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        Enter a string: happy
+        its not a palindrome!
+    </code>
+    </pre>
+</body>
+</html>

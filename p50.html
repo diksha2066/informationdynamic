@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //Enter the string from the user, and count the number of vowels.
+            #include&ltstdio.h>
+            void main(){
+            char str[30];
+            int i,count=0;
+            printf("Enter a string: ");
+            gets(str);
+            for(i=0;str[i]!='\0';i++){
+            if(str[i]=='a'||str[i]=='A'||str[i]=='e'||str[i]=='E'||str[i]=='i'||str[i]=='I'||str[i]=='o'||str[i]=='O'||str[i]=='u'||str[i]=='U'){
+            count++;
+            }
+            }
+            printf("Number of vowels are: %d",count);
+            getch();
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        Enter a string: happy birthday
+        Number of vowels are: 3
+        
+    </code>
+    </pre>
+</body>
+</html>

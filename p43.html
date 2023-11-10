@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //Enter the string from the user,Enter the index number and print character present on that index.
+            #include&ltstdio.h>
+            void main(){
+            char s1[30];
+            int i,index,size;
+            printf("Enter a string:");
+            gets(s1);
+            printf("Enter index numer: ");
+            scanf("%d",&index);
+            while(s1[size]!='\0'){
+            size++;
+            }
+            if(index<=size){
+            printf("%c",s1[index]);
+            }
+            if(index>size){
+            printf("Enter valid index!");
+            }
+            getch();
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        Enter a string:happy
+        Enter index numer: 3
+        p
+    </code>
+    </pre>
+</body>
+</html>

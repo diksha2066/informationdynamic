@@ -1,0 +1,51 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //Enter the string from the user and copy reverse of the string into another string?
+            #include&ltstdio.h>
+            void main(){
+            char str[30],s1[30];
+            int i,size=0;
+            
+            printf("Enter a string: ");
+            gets(str);
+            while(str[size]!='\0'){
+            size++;
+            }
+            i=0;
+            while(size-1>=0){
+            //printf("%d",i);
+            s1[i]=str[size-1];
+            //printf("%s",s1);
+            size--;
+            i++;
+            }
+            s1[i]='\0';
+            printf("%s",s1);
+            getch();
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        Enter a string: happy birthday
+        yadhtrib yppah
+        
+    </code>
+    </pre>
+</body>
+</html>

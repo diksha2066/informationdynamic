@@ -1,0 +1,52 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //ENTER THE STRING FROM USER AND COPY IT INTO ANOTHER STRING VARIABLE.
+            #include&ltstdio.h>
+            #include&ltstring.h>
+            #define size 10
+            void copy(char str1[], char str2[]){
+                int i=0;
+                while(str1[i]!='\0'){
+                    str2[i]=str1[i];
+                    i++;
+                }
+                str2[i]='\0';
+            }
+            int main(){
+                char str1[size], str2[size];
+                printf("Enter input in string 1: ");
+                fgets(str1, size, stdin);
+                str1[strcspn(str1, "\n")] = '\0';
+                copy(str1, str2);
+                printf("Result after copying string1 into string2 is: ");
+                puts(str2);  
+                return 0;
+            }
+            
+            
+            
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        Enter input in string 1: happy
+        Result after copying string1 into string2 is: happy
+    </code>
+    </pre>
+</body>
+</html>

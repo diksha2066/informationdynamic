@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //Enter an string from the user and print each character in new line?
+            #include&ltstdio.h>
+            void main(){
+            char str[30];
+            int i;
+            printf("Enter a string: ");
+            gets(str);
+            for(i=0;str[i]!='\0';i++){
+            printf("%c\n",str[i]);
+            }
+            getch();
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        Enter a string: happy
+        h
+        a
+        p
+        p
+        y
+    </code>
+    </pre>
+</body>
+</html>
