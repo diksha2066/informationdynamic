@@ -1,0 +1,101 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            #include&ltstdio.h>
+                #include&ltconio.h>
+                #include&ltstring.h>
+                
+                int s[50];
+                int top=0;
+                
+                void push(int ch);
+                int pop();
+                
+                int main()
+                {
+                    int a,b,c,i;
+                    char prefix[50];
+                
+                
+                    printf("\nEnter the prefix string in figures(1 digit nos);");
+                    gets(prefix);
+                
+                    
+                    for(i=strlen(prefix)-1;i>=0;i--)
+                    {
+                        if(prefix[i]=='+')
+                        {
+                            c=pop()+pop();
+                            push(c);
+                        }
+                        else if(prefix[i]=='-')
+                        {
+                            a=pop();
+                            b=pop();
+                            c=b-a;
+                            push(c);
+                        }
+                        else if(prefix[i]=='*')
+                        {	a=pop();
+                        b=pop();
+                        c=b*a;
+                        push(c);
+                        }
+                        else if(prefix[i]=='/')
+                        {
+                            a=pop();
+                            b=pop();
+                            c=b/a;
+                            push(c);
+                        }
+                        else
+                        {
+                            push(prefix[i]-48);
+                            
+                        }
+                    }
+                    printf("\nFinal ans = %d",pop());
+                
+                    getch();
+                    return 0;
+                }
+                
+                void push(int ch)
+                {
+                    top++;
+                    s[top]=ch;
+                }
+                
+                int pop()
+                {
+                    int ch;
+                    ch=s[top];
+                    top=top-1;
+                    return(ch);
+                }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        Enter the prefix string in figures(1 digit nos);*+69-31
+
+        Final ans = -30
+        
+    </code>
+    </pre>
+</body>
+</html>

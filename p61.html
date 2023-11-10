@@ -1,0 +1,76 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt; 
+            #include &lt;stdlib.h&gt; 
+            #define max 100
+            struct stack {
+                char b[max];
+                int top;
+            };
+            
+            void push(struct stack* s, char k) {
+                if (s->top == max - 1)
+                    printf("\n Stack is full");
+                else
+                    s->b[++s->top] = k;
+            }
+            
+            char pop(struct stack* s) {
+                char c;
+                if (s->top == -1) {
+                    printf("\n Stack is empty");
+                    return '\0';  
+                } else {
+                    c = s->b[s->top--];
+                    return c;
+                }
+            }
+            
+            int main() {
+                char name[max];
+                struct stack s;
+                s.top = -1;
+            
+                printf("Enter the string: ");
+                gets(name);
+            
+                int i = 0;
+                while (name[i] != '\0') {
+                    push(&s, name[i]);
+                    i++;
+                }
+            
+                printf("\n Reversed string: ");
+                while (s.top != -1) {
+                    printf("%c", pop(&s));
+                }
+            
+                return 0;
+            }
+            
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        Enter the string:happy
+
+        Reversed string:yppah
+    </code>
+    </pre>
+</body>
+</html>

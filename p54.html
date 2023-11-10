@@ -1,0 +1,67 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //Print all the permutation of a string i.e. "ABCDE".
+            #include&ltstdio.h>
+            void swap(char *c1,char *c2){
+            char temp;
+            temp=*c1;
+            *c1=*c2;
+            *c2=temp;
+            }
+            void perm(char *s,int a,int n){
+            int j;
+            if(a==n){
+            printf("%s\n",s);
+            }
+            else{
+            for(j=a;j<=n;j++){
+            swap((s+a),(s+j));
+            perm(s,a+1,n);
+            swap((s+a),(s+j));
+            }
+            }
+            }
+            
+            void main(){
+            char str[30];
+            int n=0;
+            printf("Enter a string: ");
+            gets(str);
+            printf("All posible permutations:\n");
+            while(str[n]!='\0'){
+            n++;
+            }
+            perm(str,0,n-1);
+            getch();
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        Enter a string: can
+        All posible permutations:
+        can
+        cna
+        acn
+        anc
+        nac
+        nca 
+    </code>
+    </pre>
+</body>
+</html>

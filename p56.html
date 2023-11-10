@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //Enter a sentence from the user and then enter the word and count the occurence of that word in the sentence.
+            #include&ltstdio.h>
+            #include&ltstring.h>
+            void main(){
+            char sentence[50];
+            char word[20];
+            int count=0,i,j,match,s_len,w_len;
+            printf("Enter a sentence: ");
+            gets(sentence);
+            printf("Enter a word to count: ");
+            gets(word);
+            s_len=strlen(sentence);
+            w_len=strlen(word);
+            for(i=0;i&lts_len-w_len+1;i++){
+            match=1;
+            for(j=0;j&ltw_len;j++){
+            if(sentence[i+j]!=word[j]){
+            match=0;
+            break;
+            }
+            }
+            if(match){
+            sentence[i+j]=word[j];
+            }
+            }
+            printf("The word '%s' appears %d times in the sentence.\n",word,count);
+            getch();
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        Enter a sentence: happy
+        Enter a word to count: c
+        The word 'c' appears 0 times in the sentence.
+    </code>
+    </pre>
+</body>
+</html>

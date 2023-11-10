@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //Enter the string from the user and count the number of characters,words,spaces and lines.
+            #include&ltstdio.h>
+            void main(){
+            char str[100];
+            int i=0,chr=0,wrd=1,spc=0,ln=0;
+            printf("Enter a string: ");
+            gets(str);
+            for(i=0;str[i]!='\0';i++){
+            chr++;
+            if(str[i]==' '){
+            wrd++;
+            }
+            if(str[i]==' '){
+            spc++;
+            }
+            if(str[i]=='.'){
+            ln++;
+            }
+            }
+            printf("Character: %d",chr);
+            printf("\nWord: %d",wrd);
+            printf("\nSpace: %d",spc);
+            printf("\nLine: %d",ln);
+            getch();
+            }
+            
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        Enter a string: happy birthday
+        Character: 14
+        Word: 2
+        Space: 1
+        Line: 0
+    </code>
+    </pre>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //Enter the string from the user, sort the string in ascending order and print it.
+            #include&ltstdio.h>
+            void main(){
+            char str[30];
+            int i,j,temp;
+            printf("Enter a string: ");
+            gets(str);
+            for(i=0;str[i]!='\0';i++){
+            for(j=i+1;str[j]!='\0';j++){
+            if(str[i]>str[j]){
+            temp=str[i];
+            str[i]=str[j];
+            str[j]=temp;
+            }
+            }
+            }
+            printf("%s",str);
+            getch();
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        Enter a string: beautiful
+        abefiltuu
+    </code>
+    </pre>
+</body>
+</html>

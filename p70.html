@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            #include &lt;stdio.h&gt; 
+            #include &lt;conio.h&gt;
+            
+            int linersearch(char str[],char key,int index)
+            {
+                if(str[index]=='\0')
+                {
+                    return -1;
+                }
+                if(str[index]==key)
+                {
+                    return index;
+                }
+                linersearch(str,key,index+1);
+            }
+            int main()
+            {
+                char str[10];
+                char key;
+                printf("enter the string:");
+                gets(str);
+                printf("Enter the charrcter to search:");
+                scanf(" %c",&key);
+                int result = linersearch(str,key,0);
+                if(result!=-1){
+                    printf("character %c found at index %d",key,result);
+                }
+                else
+                {
+                    printf("character %c not found in the string",key);
+                }
+            }
+
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        enter the string:hello world
+        Enter the charrcter to search:w
+        character w found at index 6
+    </code>
+    </pre>
+</body>
+</html>

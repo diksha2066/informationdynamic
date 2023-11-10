@@ -1,0 +1,58 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //Enter the string from the user and convert into a float value?
+            #include&ltstdio.h>
+            #include&ltmath.h>
+            int convert(char str[],int I,int n){
+            int num=0,i;
+            for(i=I;i<=n;i++){
+            num=(num*10)+(str[i]-48);
+            }
+            return num;
+            }
+            void main(){
+            char str[30];
+            int size,i,j,front=0;
+            float p,s,q;
+            printf("Enter a string: ");
+            gets(str);
+            size=strlen(str);
+            for(i=0;i&ltsize;i++){
+            if(str[i]=='.'){
+            s=convert(str,0,i-1);
+            for(j=i+1;j&ltsize-1;j++){
+            front++;
+            }
+            p=convert(str,i+1,size-2);
+            p=p/pow(10,front);
+            }
+            }
+            q=s+p;
+            printf("Float no. is: %f\n",q);
+            getch();
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        Enter a string: happy
+        Float no. is: 0.000000
+    </code>
+    </pre>
+</body>
+</html>

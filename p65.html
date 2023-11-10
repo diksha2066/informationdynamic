@@ -1,0 +1,122 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            #include &ltstdio.h>
+                #include &ltstdlib.h>
+                
+                #define MAX_SIZE 100
+                
+                // Structure to represent a stack
+                struct Stack {
+                    int top;
+                    int array[MAX_SIZE];
+                };
+                
+                // Function to initialize the stack
+                void initializeStack(struct Stack* stack) {
+                    stack->top = -1;
+                }
+                
+                // Function to check if the stack is empty
+                int isEmpty(struct Stack* stack) {
+                    return stack->top == -1;
+                }
+                
+                // Function to push an element onto the stack
+                void push(struct Stack* stack, int item) {
+                    if (stack->top >= MAX_SIZE - 1) {
+                        printf("Stack Overflow\n");
+                        return;
+                    }
+                    stack->array[++stack->top] = item;
+                }
+                
+                // Function to pop an element from the stack
+                int pop(struct Stack* stack) {
+                    if (isEmpty(stack)) {
+                        printf("Stack Underflow\n");
+                        return -1;
+                    }
+                    return stack->array[stack->top--];
+                }
+                
+                // Function to sort the stack in ascending order using an integer array
+                void sortStack(struct Stack* stack) {
+                    int tempStack[MAX_SIZE];
+                    int tempTop = -1;
+                    
+                    while (!isEmpty(stack)) {
+                        int temp = pop(stack);
+                        while (tempTop >= 0 && tempStack[tempTop] > temp) {
+                            push(stack, tempStack[tempTop--]);
+                        }
+                        tempStack[++tempTop] = temp;
+                    }
+                    
+                    // Copy sorted elements back to the original stack
+                    int i;
+                    for ( i = tempTop; i >= 0; i--) {
+                        push(stack, tempStack[i]);
+                    }
+                }
+                
+                int main() {
+                    struct Stack stack;
+                    initializeStack(&stack);
+                    
+                    int n,i, num;
+                    printf("Enter the number of elements in the stack: ");
+                    scanf("%d", &n);
+                    
+                    printf("Enter %d elements:\n", n);
+                    for ( i = 0; i < n; i++) {
+                        scanf("%d", &num);
+                        push(&stack, num);
+                    }
+                    
+                    printf("Original Stack: ");
+                    while (!isEmpty(&stack)) {
+                        printf("%d ", pop(&stack));
+                    }
+                    
+                    sortStack(&stack);
+                    
+                    printf("\nSorted Stack in Ascending Order: ");
+                    while (!isEmpty(&stack)) {
+                        printf("%d ", pop(&stack));
+                    }
+                    
+                    return 0;
+                }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+       Enter the number of elements in the stack: 5
+Enter 5 elements:
+1
+4
+2
+3
+7
+Original Stack: 7 3 2 4 1
+Sorted Stack in Ascending Order:1 2 3 4 7
+
+    </code>
+    </pre>
+</body>
+</html>
