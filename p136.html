@@ -1,0 +1,195 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+
+            #include < stdio.h&gt;
+            #include < stdlib.h&gt;
+            
+            struct Term {
+                int coefficient;
+                int exponent;
+                struct Term* next;
+            };
+            
+            typedef struct Term Term;
+            
+            Term* create_term(int coefficient, int exponent) {
+                Term* new_term = (Term*)malloc(sizeof(Term));
+                new_term-&gt;coefficient = coefficient;
+                new_term-&gt;exponent = exponent;
+                new_term-&gt;next = NULL;
+                return new_term;
+            }
+            
+            Term* insert_term(Term* head, int coefficient, int exponent) {
+                Term* new_term = create_term(coefficient, exponent);
+            
+                if (head == NULL) {
+                    return new_term;
+                }
+            
+                Term* current = head;
+                Term* previous = NULL;
+            
+                while (current != NULL &amp;&amp; current-&gt;exponent &gt; exponent) {
+                    previous = current;
+                    current = current-&gt;next;
+                }
+            
+                if (current == NULL) {
+                    if (previous != NULL) {
+                        previous-&gt;next = new_term;
+                    } else {
+                        head = new_term;
+                    }
+                } else if (current-&gt;exponent == exponent) {
+                    current-&gt;coefficient += coefficient;
+                    free(new_term);
+                } else {
+                    new_term-&gt;next = current;
+                    if (previous != NULL) {
+                        previous-&gt;next = new_term;
+                    } else {
+                        head = new_term;
+                    }
+                }
+            
+                return head;
+            }
+            
+            void display_polynomial(Term* head) {
+                if (head == NULL) {
+                    printf("0\n");
+                    return;
+                }
+            
+                Term* current = head;
+                while (current != NULL) {
+                    printf("%dx^%d", current-&gt;coefficient, current-&gt;exponent);
+                    current = current-&gt;next;
+            
+                    if (current != NULL) {
+                        printf(" + ");
+                    }
+                }
+            
+                printf("\n");
+            }
+            
+            Term* add_polynomials(Term* poly1, Term* poly2) {
+                Term* result = NULL;
+            
+                Term* term1 = poly1;
+                Term* term2 = poly2;
+            
+                while (term1 != NULL &amp;&amp; term2 != NULL) {
+                    if (term1-&gt;exponent &gt; term2-&gt;exponent) {
+                        result = insert_term(result, term1-&gt;coefficient, term1-&gt;exponent);
+                        term1 = term1-&gt;next;
+                    } else if (term1-&gt;exponent &lt; term2-&gt;exponent) {
+                        result = insert_term(result, term2-&gt;coefficient, term2-&gt;exponent);
+                        term2 = term2-&gt;next;
+                    } else {
+                        int sum_coeff = term1-&gt;coefficient + term2-&gt;coefficient;
+                        if (sum_coeff != 0) {
+                            result = insert_term(result, sum_coeff, term1-&gt;exponent);
+                        }
+                        term1 = term1-&gt;next;
+                        term2 = term2-&gt;next;
+                    }
+                }
+            
+                while (term1 != NULL) {
+                    result = insert_term(result, term1-&gt;coefficient, term1-&gt;exponent);
+                    term1 = term1-&gt;next;
+                }
+            
+                while (term2 != NULL) {
+                    result = insert_term(result, term2-&gt;coefficient, term2-&gt;exponent);
+                    term2 = term2-&gt;next;
+                }
+            
+                return result;
+            }
+            
+            void free_polynomial(Term* head) {
+                while (head != NULL) {
+                    Term* temp = head;
+                    head = head-&gt;next;
+                    free(temp);
+                }
+            }
+            
+            int main() {
+                Term* poly1 = NULL;
+                Term* poly2 = NULL;
+            
+                int n1, n2, coeff, exp;
+            
+                printf("Enter the number of terms in the first polynomial: ");
+                scanf("%d", &amp;n1);
+            
+                for (int i = 0; i &lt; n1; i++) {
+                    printf("Enter coefficient and exponent for term %d: ", i + 1);
+                    scanf("%d %d", &amp;coeff, &amp;exp);
+                    poly1 = insert_term(poly1, coeff, exp);
+                }
+            
+                printf("Enter the number of terms in the second polynomial: ");
+                scanf("%d", &amp;n2);
+            
+                for (int i = 0; i &lt; n2; i++) {
+                    printf("Enter coefficient and exponent for term %d: ", i + 1);
+                    scanf("%d %d", &amp;coeff, &amp;exp);
+                    poly2 = insert_term(poly2, coeff, exp);
+                }
+            
+                printf("\nPolynomial 1: ");
+                display_polynomial(poly1);
+            
+                printf("Polynomial 2: ");
+                display_polynomial(poly2);
+            
+                Term* result = add_polynomials(poly1, poly2);
+                printf("Sum of the two polynomials: ");
+                display_polynomial(result);
+            
+                free_polynomial(poly1);
+                free_polynomial(poly2);
+                free_polynomial(result);
+            
+                return 0;
+            }
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+       Enter the number of terms in the first polynomial: 3
+Enter coefficient and exponent for term 1: 2 2
+Enter coefficient and exponent for term 2: 3 1
+Enter coefficient and exponent for term 3: 4 0
+
+Enter the number of terms in the second polynomial: 2
+Enter coefficient and exponent for term 1: 5 3
+Enter coefficient and exponent for term 2: 1 0
+
+Polynomial 1: 2x^2 + 3x^1 + 4x^0
+Polynomial 2: 5x^3 + 1x^0
+Sum of the two polynomials: 5x^3 + 2x^2 + 3x^1 + 5x^0
+    </code>
+    </pre>
+</body>
+</html>

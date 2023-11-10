@@ -1,0 +1,270 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+
+            #include < stdio.h&gt;
+            #include < stdlib.h&gt;
+            #include < string.h&gt;
+            
+            struct Node {
+                char data[100];
+                struct Node *next;
+            };
+            
+            int is_empty(struct Node *head) {
+                return head == NULL;
+            }
+            
+            struct Node *insert_at_begin(struct Node *head, char data[]) {
+                struct Node *new_node = (struct Node *)malloc(sizeof(struct Node));
+                strcpy(new_node-&gt;data, data);
+                if (head == NULL) {
+                    new_node-&gt;next = new_node;
+                    return new_node;
+                }
+                new_node-&gt;next = head-&gt;next;
+                head-&gt;next = new_node;
+                return head;
+            }
+            
+            struct Node *insert_at_end(struct Node *head, char data[]) {
+                struct Node *new_node = (struct Node *)malloc(sizeof(struct Node));
+                strcpy(new_node-&gt;data, data);
+                if (head == NULL) {
+                    new_node-&gt;next = new_node;
+                    return new_node;
+                }
+                new_node-&gt;next = head-&gt;next;
+                head-&gt;next = new_node;
+                return new_node;
+            }
+            
+            struct Node *insert_at_pos(struct Node *head, char data[], int pos) {
+                struct Node *new_node = (struct Node *)malloc(sizeof(struct Node));
+                strcpy(new_node-&gt;data, data);
+                if (pos == 1) {
+                    new_node-&gt;next = head-&gt;next;
+                    head-&gt;next = new_node;
+                    return head;
+                }
+                struct Node *temp = head-&gt;next;
+                for (int i = 1; i &lt; pos - 1; i++) {
+                    if (temp == head) {
+                        printf("Invalid position\n");
+                        free(new_node);
+                        return head;
+                    }
+                    temp = temp-&gt;next;
+                }
+                new_node-&gt;next = temp-&gt;next;
+                temp-&gt;next = new_node;
+                return head;
+            }
+            
+            struct Node *delete_at_begin(struct Node *head) {
+                if (head == NULL) {
+                    printf("List is empty\n");
+                    return head;
+                }
+                struct Node *temp = head-&gt;next;
+                if (temp == head) {
+                    free(temp);
+                    return NULL;
+                }
+                head-&gt;next = temp-&gt;next;
+                free(temp);
+                return head;
+            }
+            
+            struct Node *delete_at_end(struct Node *head) {
+                if (head == NULL) {
+                    printf("List is empty\n");
+                    return head;
+                }
+                struct Node *temp = head-&gt;next;
+                struct Node *prev = head;
+                while (temp-&gt;next != head) {
+                    prev = temp;
+                    temp = temp-&gt;next;
+                }
+                if (temp == head) {
+                    free(temp);
+                    return NULL;
+                }
+                prev-&gt;next = head;
+                free(temp);
+                return head;
+            }
+            
+            struct Node *delete_at_pos(struct Node *head, int pos) {
+                if (head == NULL) {
+                    printf("List is empty\n");
+                    return head;
+                }
+                if (pos == 1) {
+                    struct Node *temp = head-&gt;next;
+                    if (temp == head) {
+                        free(temp);
+                        return NULL;
+                    }
+                    head-&gt;next = temp-&gt;next;
+                    free(temp);
+                    return head;
+                }
+                struct Node *temp = head-&gt;next;
+                struct Node *prev = head;
+                for (int i = 1; i &lt; pos; i++) {
+                    if (temp == head) {
+                        printf("Invalid position\n");
+                        return head;
+                    }
+                    prev = temp;
+                    temp = temp-&gt;next;
+                }
+                prev-&gt;next = temp-&gt;next;
+                free(temp);
+                return head;
+            }
+            
+            void display(struct Node *head) {
+                if (head == NULL) {
+                    printf("List is empty\n");
+                    return;
+                }
+                struct Node *temp = head-&gt;next;
+                do {
+                    printf("%s -&gt; ", temp-&gt;data);
+                    temp = temp-&gt;next;
+                } while (temp != head-&gt;next);
+                printf("\n");
+            }
+            
+            int search(struct Node *head, char data[]) {
+                if (head == NULL) {
+                    printf("List is empty\n");
+                    return 0;
+                }
+                struct Node *temp = head-&gt;next;
+                int pos = 1;
+                do {
+                    if (strcmp(temp-&gt;data, data) == 0) {
+                        printf("%s found at position %d\n", data, pos);
+                        return 1;
+                    }
+                    temp = temp-&gt;next;
+                    pos++;
+                } while (temp != head-&gt;next);
+                printf("%s not found in the list\n", data);
+                return 0;
+            }
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+       Operations on Single Linked List:
+1. Insert at the beginning
+2. Insert at the end
+3. Insert at a specific position
+4. Delete at the beginning
+5. Delete at the end
+6. Delete at a specific position
+7. Display the list
+8. Check if the list is empty
+9. Exit
+Enter your choice: 1
+Enter data to insert at the beginning: HELLO
+
+Operations on Single Linked List:
+1. Insert at the beginning
+2. Insert at the end
+3. Insert at a specific position
+4. Delete at the beginning
+5. Delete at the end
+6. Delete at a specific position
+7. Display the list
+8. Check if the list is empty
+9. Exit
+Enter your choice: 2
+Enter data to insert at the end: HOLA
+
+Operations on Single Linked List:
+1. Insert at the beginning
+2. Insert at the end
+3. Insert at a specific position
+4. Delete at the beginning
+5. Delete at the end
+6. Delete at a specific position
+7. Display the list
+8. Check if the list is empty
+9. Exit
+Enter your choice: 3
+Enter data to insert: BONJOR
+Enter the position to insert at: 4
+Position out of range
+
+Operations on Single Linked List:
+1. Insert at the beginning
+2. Insert at the end
+3. Insert at a specific position
+4. Delete at the beginning
+5. Delete at the end
+6. Delete at a specific position
+7. Display the list
+8. Check if the list is empty
+9. Exit
+Enter your choice: 7
+HELLO -&gt; HOLA -&gt; NULL
+
+Operations on Single Linked List:
+1. Insert at the beginning
+2. Insert at the end
+3. Insert at a specific position
+4. Delete at the beginning
+5. Delete at the end
+6. Delete at a specific position
+7. Display the list
+8. Check if the list is empty
+9. Exit
+Enter your choice: 8
+The list is not empty.
+
+Operations on Single Linked List:
+1. Insert at the beginning
+2. Insert at the end
+3. Insert at a specific position
+4. Delete at the beginning
+5. Delete at the end
+6. Delete at a specific position
+7. Display the list
+8. Check if the list is empty
+9. Exit
+Enter your choice: 5
+
+Operations on Single Linked List:
+1. Insert at the beginning
+2. Insert at the end
+3. Insert at a specific position
+4. Delete at the beginning
+5. Delete at the end
+6. Delete at a specific position
+7. Display the list
+8. Check if the list is empty
+9. Exit
+Enter your choice: 9     
+    </code>
+    </pre>
+</body>
+</html>

@@ -1,0 +1,404 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+w
+    <pre>
+        <code>
+            #include < stdio.h&gt;
+            #include < stdlib.h&gt;
+            #include < string.h&gt;
+            
+            struct Node {
+                char data[100];
+                struct Node *prev;
+                struct Node *next;
+            };
+            
+            struct Node *insert_at_begin(struct Node *head, char data[]) {
+                struct Node *new_node = (struct Node *)malloc(sizeof(struct Node));
+                strcpy(new_node-&gt;data, data);
+                new_node-&gt;prev = NULL;
+                new_node-&gt;next = head;
+            
+                if (head != NULL) {
+                    new_node-&gt;prev = head-&gt;prev;
+                    head-&gt;prev-&gt;next = new_node;
+                    head-&gt;prev = new_node;
+                } else {
+                    new_node-&gt;next = new_node;
+                    new_node-&gt;prev = new_node;
+                }
+            
+                return new_node;
+            }
+            
+            struct Node *insert_at_end(struct Node *head, char data[]) {
+                struct Node *new_node = (struct Node *)malloc(sizeof(struct Node));
+                strcpy(new_node-&gt;data, data);
+            
+                if (head == NULL) {
+                    new_node-&gt;next = new_node;
+                    new_node-&gt;prev = new_node;
+                    return new_node;
+                }
+            
+                new_node-&gt;next = head;
+                new_node-&gt;prev = head-&gt;prev;
+                head-&gt;prev-&gt;next = new_node;
+                head-&gt;prev = new_node;
+            
+                return head;
+            }
+            
+            struct Node *insert_at_pos(struct Node *head, char data[], int pos) {
+                struct Node *new_node = (struct Node *)malloc(sizeof(struct Node));
+                strcpy(new_node-&gt;data, data);
+            
+                if (pos == 1) {
+                    new_node-&gt;next = head;
+                    new_node-&gt;prev = head-&gt;prev;
+                    head-&gt;prev-&gt;next = new_node;
+                    head-&gt;prev = new_node;
+                    return new_node;
+                }
+            
+                struct Node *temp = head;
+                int current_pos = 1;
+            
+                while (temp != NULL &amp;&amp; current_pos &lt; pos) {
+                    temp = temp-&gt;next;
+                    current_pos++;
+                }
+            
+                if (temp == NULL &amp;&amp; current_pos &lt; pos) {
+                    free(new_node);
+                    printf("Invalid position\n");
+                    return head;
+                }
+            
+                new_node-&gt;next = temp;
+                new_node-&gt;prev = temp-&gt;prev;
+                temp-&gt;prev-&gt;next = new_node;
+                temp-&gt;prev = new_node;
+            
+                return head;
+            }
+            
+            struct Node *delete_at_begin(struct Node *head) {
+                if (head == NULL) {
+                    printf("List is empty\n");
+                    return head;
+                }
+            
+                struct Node *temp = head;
+            
+                if (head-&gt;next == head) {
+                    free(temp);
+                    return NULL;
+                }
+            
+                head = head-&gt;next;
+                head-&gt;prev = temp-&gt;prev;
+                temp-&gt;prev-&gt;next = head;
+                free(temp);
+            
+                return head;
+            }
+            
+            struct Node *delete_at_end(struct Node *head) {
+                if (head == NULL) {
+                    printf("List is empty\n");
+                    return head;
+                }
+            
+                if (head-&gt;next == head) {
+                    free(head);
+                    return NULL;
+                }
+            
+                struct Node *temp = head-&gt;prev;
+                head-&gt;prev = temp-&gt;prev;
+                temp-&gt;prev-&gt;next = head;
+                free(temp);
+            
+                return head;
+            }
+            
+            struct Node *delete_at_pos(struct Node *head, int pos) {
+                if (head == NULL) {
+                    printf("List is empty\n");
+                    return head;
+                }
+            
+                if (pos == 1) {
+                    return delete_at_begin(head);
+                }
+            
+                struct Node *temp = head;
+                int current_pos = 1;
+            
+                while (temp != NULL &amp;&amp; current_pos &lt; pos) {
+                    temp = temp-&gt;next;
+                    current_pos++;
+                }
+            
+                if (temp == NULL &amp;&amp; current_pos &lt; pos) {
+                    printf("Invalid position\n");
+                    return head;
+                }
+            
+                temp-&gt;prev-&gt;next = temp-&gt;next;
+                temp-&gt;next-&gt;prev = temp-&gt;prev;
+                free(temp);
+            
+                return head;
+            }
+            
+            int is_empty(struct Node *head) {
+                return head == NULL;
+            }
+            
+            void display(struct Node *head) {
+                if (head == NULL) {
+                    printf("List is empty\n");
+                    return;
+                }
+            
+                struct Node *temp = head;
+            
+                do {
+                    printf("%s -&gt; ", temp-&gt;data);
+                    temp = temp-&gt;next;
+                } while (temp != head);
+            
+                printf("\n");
+            }
+            
+            int search(struct Node *head, char data[]) {
+                if (head == NULL) {
+                    printf("List is empty\n");
+                    return 0;
+                }
+            
+                struct Node *temp = head;
+                int pos = 1;
+            
+                do {
+                    if (strcmp(temp-&gt;data, data) == 0) {
+                        printf("%s found at position %d\n", data, pos);
+                        return 1;
+                    }
+            
+                    temp = temp-&gt;next;
+                    pos++;
+                } while (temp != head);
+            
+                printf("%s not found in the list\n", data);
+                return 0;
+            }
+            
+            int main() {
+                struct Node *head = NULL;
+                int choice, pos;
+                char data[100];
+            
+                while (1) {
+                    printf("\nDoubly Circular Linked List Operations:\n");
+                    printf("1. Insert at the beginning\n");
+                    printf("2. Insert at the end\n");
+                    printf("3. Insert at a specific position\n");
+                    printf("4. Delete at the beginning\n");
+                    printf("5. Delete at the end\n");
+                    printf("6. Delete at a specific position\n");
+                    printf("7. Check if the list is empty\n");
+                    printf("8. Display the list\n");
+                    printf("9. Search for a value\n");
+                    printf("10. Exit\n");
+                    printf("Enter your choice: ");
+            
+                    scanf("%d", &amp;choice);
+            
+                    switch (choice) {
+                        case 1:
+                            printf("Enter data to insert at the beginning: ");
+                            scanf("%s", data);
+                            head = insert_at_begin(head, data);
+                            break;
+                        case 2:
+                            printf("Enter data to insert at the end: ");
+                            scanf("%s", data);
+                            head = insert_at_end(head, data);
+                            break;
+                        case 3:
+                            printf("Enter data to insert: ");
+                            scanf("%s", data);
+                            printf("Enter position to insert: ");
+                            scanf("%d", &amp;pos);
+                            head = insert_at_pos(head, data, pos);
+                            break;
+                        case 4:
+                            head = delete_at_begin(head);
+                            break;
+                        case 5:
+                            head = delete_at_end(head);
+                            break;
+                        case 6:
+                            printf("Enter position to delete: ");
+                            scanf("%d", &amp;pos);
+                            head = delete_at_pos(head, pos);
+                            break;
+                        case 7:
+                            if (is_empty(head))
+                                printf("The list is empty.\n");
+                            else
+                                printf("The list is not empty.\n");
+                            break;
+                        case 8:
+                            display(head);
+                            break;
+                        case 9:
+                            printf("Enter data to search: ");
+                            scanf("%s", data);
+                            search(head, data);
+                            break;
+                        case 10:
+                            exit(0);
+                        default:
+                            printf("Invalid choice. Please enter a valid option.\n");
+                    }
+                }
+            
+                return 0;
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+       Doubly Circular Linked List Operations:
+1. Insert at the beginning
+2. Insert at the end
+3. Insert at a specific position
+4. Delete at the beginning
+5. Delete at the end
+6. Delete at a specific position
+7. Check if the list is empty
+8. Display the list
+9. Search for a value
+10. Exit
+Enter your choice: 1
+Enter data to insert at the beginning: HELLO
+
+Doubly Circular Linked List Operations:
+1. Insert at the beginning
+2. Insert at the end
+3. Insert at a specific position
+4. Delete at the beginning
+5. Delete at the end
+6. Delete at a specific position
+7. Check if the list is empty
+8. Display the list
+9. Search for a value
+10. Exit
+Enter your choice: 2
+Enter data to insert at the end: HOLA
+
+Doubly Circular Linked List Operations:
+1. Insert at the beginning
+2. Insert at the end
+3. Insert at a specific position
+4. Delete at the beginning
+5. Delete at the end
+6. Delete at a specific position
+7. Check if the list is empty
+8. Display the list
+9. Search for a value
+10. Exit
+Enter your choice: 3
+Enter data to insert: BONJOUR
+Enter position to insert: 4
+
+Doubly Circular Linked List Operations:
+1. Insert at the beginning
+2. Insert at the end
+3. Insert at a specific position
+4. Delete at the beginning
+5. Delete at the end
+6. Delete at a specific position
+7. Check if the list is empty
+8. Display the list
+9. Search for a value
+10. Exit
+Enter your choice: 7
+The list is not empty.
+
+Doubly Circular Linked List Operations:
+1. Insert at the beginning
+2. Insert at the end
+3. Insert at a specific position
+4. Delete at the beginning
+5. Delete at the end
+6. Delete at a specific position
+7. Check if the list is empty
+8. Display the list
+9. Search for a value
+10. Exit
+Enter your choice: 8
+HELLO -&gt; BONJOUR -&gt; HOLA -&gt;
+
+Doubly Circular Linked List Operations:
+1. Insert at the beginning
+2. Insert at the end
+3. Insert at a specific position
+4. Delete at the beginning
+5. Delete at the end
+6. Delete at a specific position
+7. Check if the list is empty
+8. Display the list
+9. Search for a value
+10. Exit
+Enter your choice: 9
+Enter data to search: HOLA
+HOLA found at position 3
+
+Doubly Circular Linked List Operations:
+1. Insert at the beginning
+2. Insert at the end
+3. Insert at a specific position
+4. Delete at the beginning
+5. Delete at the end
+6. Delete at a specific position
+7. Check if the list is empty
+8. Display the list
+9. Search for a value
+10. Exit
+Enter your choice: 9    
+Enter data to search: BONJOUR
+BONJOUR found at position 2
+
+Doubly Circular Linked List Operations:
+1. Insert at the beginning
+2. Insert at the end
+3. Insert at a specific position
+4. Delete at the beginning
+5. Delete at the end
+6. Delete at a specific position
+7. Check if the list is empty
+8. Display the list
+9. Search for a value
+10. Exit
+Enter your choice: 10
+    </code>
+    </pre>
+</body>
+</html>
