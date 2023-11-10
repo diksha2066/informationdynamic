@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //CONVERT A NUMBER INTO BINARY USING RECURSION
+#include&ltstdio.h>
+int decimalToBinary(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    else
+    {
+        return (n % 2 + 10 *decimalToBinary(n / 2));
+    }
+}
+int main()
+{
+    int num;
+    printf("Enter decimal number: ");
+    scanf("%d", &num);
+    printf ("binary number of %d is %d",num,decimalToBinary(num));
+    return 0;
+}
+
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        Enter decimal number: 45.5
+        binary number of 45 is 101101
+    </code>
+    </pre>
+</body>
+</html>

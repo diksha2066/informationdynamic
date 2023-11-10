@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //FIND THE ARITHMETIC MEAN OF AN INTEGER ARRAY USING RECURSION
+            #include&ltstdio.h>
+            float mean(float a[],int n)
+            {
+                if (n==1)
+                {
+                    return a[n-1];
+                }
+                else
+                {
+                    return (mean(a,n-1)*(n-1)+ a[n-1])/n;
+                }
+            }
+            int main()
+            {
+                float a[20],result;
+                int i, size,num;
+                printf("enter the size of the array");
+                scanf("%d",&size);
+                printf("enter the elements of the array");
+                for(i=0;i&ltsize;i++)
+                {
+                scanf("%d",&a[i]);
+            }
+            result= float mean(a[20],num);
+            printf("arithmetic mean is: %d",result);
+            getch();
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+
+    <pre><code>
+        enter the size of the array5
+        enter the elements of the array21
+        3
+        45
+        76
+        89
+        arithmetic mean is:46.80
+    
+    </code>
+    </pre>
+</body>
+</html>

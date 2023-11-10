@@ -1,0 +1,52 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //ENTER THE STRING FROM USER AND CONVERT INTO SENTENCE CASE
+            #include&ltstdio.h>
+            void tosentencecase(char str[], int length){
+                    if(str[0] >= 'a' && str[0] <= 'z'){
+                        str[0] = str[0] - 32;
+                    }
+                    int i;
+                    for( i=0; i&ltlength; i++){
+                        if(str[i] == '.'){
+                            str[i+2] = str[i+2] - 32;
+                        }
+                    }
+                }
+            int main(){
+                int length = 100;
+                printf("enter a string ! \n");
+                char str[length];
+                scanf("%[^\n]",str);
+                printf("string before sentence case %s \n",str);
+                tosentencecase(str, length);
+                printf("string after sentence case %s \n",str);
+                return 0;
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        enter a string !
+        you are beautiful
+        string before sentence case you are beautiful
+        string after sentence case You are beautiful
+    </code>
+    </pre>
+</body>
+</html>

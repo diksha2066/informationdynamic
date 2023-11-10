@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //ENTER THE NUMBER FROM THE USER AND ADD ALL DIGITS OF THE NUMBER USING RECURSION.
+            #include &ltstdio.h>
+             int sum (int num)
+            {
+                if (num != 0)
+                {
+                    return (num % 10 + sum (num / 10));
+                }
+                else
+                {
+                   return 0;
+                }
+            } 
+            int main()
+            {
+                int num, result;
+             
+                printf("Enter the number: ");
+                scanf("%d", &num);
+                result = sum(num);
+                printf("Sum of digits in %d is %d\n", num, result);
+                return 0;
+            }
+             
+            
+            
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        Enter the number: 14587
+        Sum of digits in 14587 is 25
+    </code>
+    </pre>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+//CALCULATE FACTORIAL OF A NUMBER USING RECURSION 
+#include&ltstdio.h>
+int fact (int m)
+{
+if(m!=0)
+return m*fact(m-1); 
+else
+return 1;
+
+}
+int main()
+{
+   int number, result;
+       printf("Please enter a non-negative number or integer :");
+       scanf("%d",&number);
+       result= fact(number); 
+       printf("The result of the factorial would be equal to : %d\n",result);
+
+return 0;
+
+}
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        Please enter a non-negative number or integer :5
+        The result of the factorial would be equal to : 120
+    </code>
+    </pre>
+</body>
+</html>

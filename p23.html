@@ -1,0 +1,112 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //ENTER TWO MATRICES FROM USER,MULTIPLY THE MATRICES DISPLAY THE ANSWER.
+            #include&ltstdio.h>
+            int main() {
+                int m, n, p, q, i, j, k;
+                int a[10][10], b[10][10], res[10][10];
+            
+                printf("Enter the order of first matrix\n");
+                
+                printf("enter the number of rows");
+                scanf("%d",&m);
+                printf("enter the number of columns");
+                scanf("%d",&n);
+                printf("Enter the order of second matrix\n");
+                printf("enter the number of rows");
+                scanf("%d",&p);
+                printf("enter the number of columns");
+                scanf("%d",&q);
+            
+                if (n != p) {
+                    printf("Matrix is incompatible for multiplication\n");
+                } else {
+                    printf("Enter the elements of Matrix-A:\n");
+                    for (i = 0; i < m; i++) {
+                        for (j = 0; j < n; j++) {
+                            scanf("%d", & a[i][j]);
+                        }
+                    }
+            
+                    printf("Enter the elements of Matrix-B:\n");
+                    for (i = 0; i < p; i++) {
+                        for (j = 0; j < q; j++) {
+                            scanf("%d", & b[i][j]);
+                        }
+                    }
+            
+                    for (i = 0; i < m; i++) {
+                        for (j = 0; j < q; j++) {
+                            res[i][j] = 0;
+                            for (k = 0; k < p; k++) {
+                                res[i][j] += a[i][k] * b[k][j];
+                            }
+                        }
+                    }
+            
+                    printf("The product of the two matrices is:-\n");
+            
+                    for (i = 0; i < m; i++) {
+                        for (j = 0; j < q; j++) {
+                            printf("%d\t", res[i][j]);
+                        }
+                        printf("\n");
+                    }
+                }
+            
+                return 0;
+            }
+            
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+       Enter the order of first matrix
+enter the number of rows3
+enter the number of columns3
+Enter the order of second matrix
+enter the number of rows3
+enter the number of columns3
+Enter the elements of Matrix-A:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Enter the elements of Matrix-B:
+1
+4
+7
+2
+5
+8
+3
+6
+9
+The product of the two matrices is:-
+14      32      50
+32      77      122
+50      122     194
+    </code>
+    </pre>
+</body>
+</html>

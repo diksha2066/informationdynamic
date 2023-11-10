@@ -1,0 +1,51 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //ENTER THE STRING FROM USER AND CONVERT INTO TITLE CASE
+            #include&ltstdio.h>
+            void totitle(char str[], int length){
+                str[0] = str[0] - 32;
+                int i ;
+                for( i=0; i&ltlength; i++){
+                    if(str[i] == ' '){
+                        str[i+1] = str[i+1] - 32;
+                    }
+                }
+            }
+            
+            int main(){
+                int length = 100;
+                printf("enter a string ! \n");
+                char str[length];
+                scanf("%[^\n]",str);
+                printf("string before title case %s \n",str);
+                totitle(str,length);
+                printf("string after title case %s \n",str);
+                return 0;
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        enter a string !
+        you are beautiful
+        string before title case you are beautiful
+        string after title case You Are Beautiful
+    </code>
+    </pre>
+</body>
+</html>

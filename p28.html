@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //CALCULATE THE SUM OF NATURAL NUMBER TILL 10 USING RECURSION
+            #include &ltstdio.h>
+            int addNumbers(int n)
+             {
+              if (n != 0)
+                return n + addNumbers(n - 1);
+              else
+                return n;
+            }
+            
+            int main() {
+              printf("Sum of first ten natural number is  = %d", addNumbers(10));
+              return 0;
+            }
+            
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        Sum of first ten natural number is  = 55
+    </code>
+    </pre>
+</body>
+</html>

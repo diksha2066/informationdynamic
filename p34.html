@@ -1,0 +1,52 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //ENTER THE STRING FROM USER AND CONVERT IN UPPERCASE.
+            #include&ltstdio.h>
+            void touppercase(char str[], int length){
+                int i;
+                    for( i=0; i&ltlength; i++){
+                        if(str[i] >= 'a' && str[i] <= 'z'){
+                            str[i] = str[i] - 32;
+                        }
+                    }
+                }
+            int main(){
+                int length;
+                printf("enter length of string ");
+                scanf("%d",&length);
+                printf("enter a string ! \n");
+                char str[length];
+                scanf("%s",&str);
+                printf("string before upper case %s \n",str);
+                touppercase(str, length);
+                printf("string after upper case %s \n",str);
+                return 0;
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        enter length of string 5
+        enter a string !
+        happy
+        string before upper case happy
+        string after upper case HAPPY
+    </code>
+    </pre>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+//ENTER TWO MATRICES FROM USER,ADD THE MATRICES DISPLAY THE ANSWER.
+#include&ltstdio.h>
+int main()
+{
+	int a[20][20],b[20][20],sum[20][20],m,n,i,j;
+	printf("enter the number of rows");
+	scanf("%d",&m);
+	printf("enter the number of columns");
+	scanf("%d",&n);
+	printf("enter the elements of first matrix");
+	for(i=0;i&ltm;i++)
+	{
+		for(j=0;j&ltn;j++)
+		{
+			scanf("%d",&a[i][j]);
+		}
+	}
+	printf(" FIRST MATRIX \n\t\n");
+		for(i=0;i&ltm;i++)
+	{
+		for(j=0;j&ltn;j++)
+		{
+			printf("\t%d",a[i][j]);
+		}
+		printf("\t\n\t\n");
+	}
+	printf("enter the elements of second matrix");
+	for(i=0;i&ltm;i++)
+	{
+		for(j=0;j&ltn;j++)
+		{
+			scanf("%d",&b[i][j]);
+		}
+	}
+	printf(" SECOND MATRIX \n\t\n");
+		for(i=0;i&ltm;i++)
+	{
+		for(j=0;j&ltn;j++)
+		{
+			printf("\t%d",b[i][j]);
+		}
+		printf("\t\n\t\n");
+	}
+	printf("sum of the two matrices \n");
+		for(i=0;i&ltm;i++)
+	{
+		for(j=0;j&ltn;j++)
+		{
+			sum[i][j]=a[i][j]+b[i][j];
+			printf("\t%d",sum[i][j]);}
+			printf("\t\n\t\n");
+			
+		
+		
+		}
+	getch();
+}
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+       enter the number of rows3
+enter the number of columns3
+enter the elements of first matrix1
+2
+45
+7
+4
+5
+7
+8
+4
+ FIRST MATRIX
+
+        1       2       45
+
+        7       4       5
+
+        7       8       4
+
+enter the elements of second matrix5
+4
+7
+5
+8
+7
+4
+5
+4
+ SECOND MATRIX
+
+        5       4       7
+
+        5       8       7
+
+        4       5       4
+
+sum of the two matrices
+        6       6       52
+
+        12      12      12
+
+        11      13      8
+
+    </code>
+    </pre>
+</body>
+</html>

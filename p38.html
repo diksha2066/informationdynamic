@@ -1,0 +1,58 @@
+<html>
+<head>
+    <title>Code Example</title>
+    <style>
+        pre {
+            background-color: #f1f1f1; /* Set background color for code block */
+            padding: 10px; /* Add padding for readability */
+            border-radius: 5px; /* Add rounded corners */
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        <code>
+            //ENTER THE STRING FROM USER AND CONVERT INTO TOGGLE CASE
+            #include&ltstdio.h>
+            void toggle_case(char str[], int length){
+                if(str[0] < 'A' && str[0] > 'Z'){
+                    str[0] = str[0] + 32;
+                }
+                int i;
+                for( i=1; i&ltlength; i++){
+                    if(str[i] == ' '){
+                        if(str[i+1] >= 'A' && str[i+1] <= 'Z'){
+                            str[i+1] = str[i+1] + 32;
+                        }
+                    }
+                    else if(str[i-1] != ' '){
+                        if(str[i] >= 'a' && str[i] <= 'z'){
+                            str[i] = str[i] - 32;
+                        }
+                    }
+                }
+            }
+            
+            int main(){
+                char str[100];
+                printf("enter string!");
+                scanf("%[^\n]",&str);
+                printf("string before togglecase %s \n",str);
+                toggle_case(str,100);
+                printf("string after toggle case %s \n",str);
+                return 0;
+            }
+          
+        </code>
+    </pre>
+    <h1>OUTPUT</h1>
+    <pre><code>
+        enter string!you are beautiful
+        string before togglecase you are beautiful
+        string after toggle case yOU aRE bEAUTIFUL
+    </code>
+    </pre>
+</body>
+</html>
